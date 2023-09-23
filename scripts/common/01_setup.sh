@@ -4,7 +4,7 @@
 # pre install sops and extract secrets
 ####################
 cp ./bin-sops/sops /usr/local/bin/sops
-bash 01_decrypt.sh
+bash ./scripts/decrypt.sh
 
 ####################
 # prep mac
