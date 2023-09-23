@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.file.".ssh/config".source = ./ssh/config;
+  home.file.".ssh".source = ./ssh;
 }
