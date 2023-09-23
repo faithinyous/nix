@@ -32,7 +32,6 @@ in
         unstable.ncdu
         unstable.procs
         unstable.ripgrep
-        tere
         unstable.thefuck
         unstable.tldr
         unstable.tmux
