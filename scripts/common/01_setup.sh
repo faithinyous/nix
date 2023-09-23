@@ -1,6 +1,12 @@
 #!/bin/bash
 
 ####################
+# pre install sops and extract secrets
+####################
+cp ./bin-sops/sops /usr/local/bin/sops
+bash 01_decrypt.sh
+
+####################
 # prep mac
 ####################
 if [[ $(uname -s) == 'Darwin' ]]; then
