@@ -3,7 +3,8 @@
 ####################
 # pre install sops and extract secrets
 ####################
-cp ./bin-sops/sops /usr/local/bin/sops
+cp ./bin/sops /usr/local/bin/sops
+cp ./bin/fd /usr/local/bin/fd
 bash ./scripts/decrypt.sh
 
 ####################
