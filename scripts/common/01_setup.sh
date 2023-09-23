@@ -1,13 +1,6 @@
 #!/bin/bash
 
 ####################
-# pre install sops and extract secrets
-####################
-cp ./bin/sops /usr/local/bin/sops
-cp ./bin/fd /usr/local/bin/fd
-bash ./scripts/decrypt.sh
-
-####################
 # prep mac
 ####################
 if [[ $(uname -s) == 'Darwin' ]]; then
@@ -17,6 +10,14 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 	if [[ $(uname -m) == 'arm64' ]]; then
 		echo "========== Installing rosetta =========="
 		/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
+		echo "========== Installing sops =========="
+		curl -LO https://github.com/getsops/sops/releases/download/v3.8.0/sops-v3.8.0.darwin.arm64
+		mv sops-v3.8.0.darwin.arm64 /usr/local/bin/sops
+	else
+		echo "========== Installing sops =========="
+		curl -LO https://github.com/getsops/sops/releases/download/v3.8.0/sops-v3.8.0.darwin
+		mv sops-v3.8.0.darwin /usr/local/bin/sops
 	fi
 fi
 
@@ -27,9 +28,14 @@ if [[ $(uname -s) == 'Linux' ]]; then
 	echo "========== Installing build tools and other essentials =========="
 	sudo apt-get install build-essential g++ gcc libbz2-dev libc-dev liblzma-dev libncurses5-dev \
 		libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev \
-		llvm make tk-dev xz-utils zlib1g-dev curl wget ntfs-3g \
-		-y
+		llvm make tk-dev xz-utils zlib1g-dev curl wget ntfs-3g -y
 fi
+
+####################
+# pre install sops and extract secrets
+####################
+
+bash ./scripts/decrypt.sh
 
 ####################
 # setup nix
