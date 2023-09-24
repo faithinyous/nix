@@ -47,21 +47,21 @@ brew install --cask tailscale
 #brew install --cask visual-studio-code
 
 # entertainment
-brew install --cask calibre
-brew install --cask fbreader
+#brew install --cask calibre
+#brew install --cask fbreader
 brew install --cask iina
-brew install --cask simple-comic
-brew install --cask transmission-remote-gui
-brew install --cask xnviewmp
+#brew install --cask simple-comic
+#brew install --cask transmission-remote-gui
+#brew install --cask xnviewmp
 
 # quick look
-brew install --cask syntax-highlight
+#brew install --cask syntax-highlight
 brew install --cask jupyter-notebook-viewer
 brew install --cask qlmarkdown
 
 # productivity
 brew install --cask cron
-brew install --cask macdown
+#brew install --cask macdown
 brew install --cask obsidian
 #brew install --cask sleek
 brew install --cask todoist
