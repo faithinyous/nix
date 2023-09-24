@@ -62,8 +62,9 @@ rm -f ~/.config/home-manager/home.nix
 
 mkdir -p "$HOME/.config/home-manager"
 ln -s "$PWD"/* "$HOME/.config/home-manager"
-mkdir "$HOME/.ssh"
-ln -s "$PWD"/tools/ssh "$HOME/.ssh"
+#mkdir "$HOME/.ssh"
+ln -s "$PWD"/modules/tools/ssh "$HOME/.ssh"
+cp "$PWD"/modules/tools/ssh/id_rsa.pub "$PWD"/modules/tools/ssh/authorized_keys
 
 if [ -f ".env" ]; then
 	source .env
