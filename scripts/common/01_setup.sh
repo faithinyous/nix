@@ -11,18 +11,21 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 		echo "========== Installing rosetta =========="
 		/usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
-		echo "========== Installing sops =========="
+		echo "========== Installing sops arm64 =========="
 		curl -LO https://github.com/getsops/sops/releases/download/v3.8.0/sops-v3.8.0.darwin.arm64
 		sudo mkdir /usr/local/bin
 		sudo mv sops-v3.8.0.darwin.arm64 /usr/local/bin/sops
 		sudo chmod +x /usr/local/bin/sops
 	else
-		echo "========== Installing sops =========="
+		echo "========== Installing sops intel =========="
 		curl -LO https://github.com/getsops/sops/releases/download/v3.8.0/sops-v3.8.0.darwin
 		sudo mkdir /usr/local/bin
 		sudo mv sops-v3.8.0.darwin /usr/local/bin/sops
 		sudo chmod +x /usr/local/bin/sops
 	fi
+	# config default shell to fish
+	sudo echo /Users/apipornsimapornchai/.nix-profile/bin/fish >> /etc/shells
+  chsh -s /Users/apipornsimapornchai/.nix-profile/bin/fish
 fi
 
 ####################
