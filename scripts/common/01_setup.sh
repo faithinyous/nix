@@ -13,13 +13,15 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 
 		echo "========== Installing sops =========="
 		curl -LO https://github.com/getsops/sops/releases/download/v3.8.0/sops-v3.8.0.darwin.arm64
-		mv sops-v3.8.0.darwin.arm64 /usr/local/bin/sops
-		chmod +x /usr/local/bin/sops
+		sudo mkdir /usr/local/bin
+		sudo mv sops-v3.8.0.darwin.arm64 /usr/local/bin/sops
+		sudo chmod +x /usr/local/bin/sops
 	else
 		echo "========== Installing sops =========="
 		curl -LO https://github.com/getsops/sops/releases/download/v3.8.0/sops-v3.8.0.darwin
-		mv sops-v3.8.0.darwin /usr/local/bin/sops
-		chmod +x /usr/local/bin/sops
+		sudo mkdir /usr/local/bin
+		sudo mv sops-v3.8.0.darwin /usr/local/bin/sops
+		sudo chmod +x /usr/local/bin/sops
 	fi
 fi
 
